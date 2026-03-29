@@ -1,6 +1,7 @@
 package io.github.rafafrdz.binance4s.http.client
 
 import cats.effect.{Async, Resource}
+
 import org.http4s.ember.client.EmberClientBuilder
 
 import io.github.rafafrdz.binance4s.config.BinanceConfig

@@ -11,28 +11,28 @@ import io.github.rafafrdz.binance4s.query.QueryString
 case object Ping
 case object ServerTimeReq
 case class ExchangeInfoReq(
-    symbol: Option[String] = None,
-    symbols: Option[List[String]] = None
+  symbol: Option[String] = None,
+  symbols: Option[List[String]] = None
 )
 
 // Endpoint instances
 given BinanceEndpoint[Ping.type, Json] with
-  def method   = HttpMethod.GET
-  def prefix   = ApiPrefix.Api
-  def version  = ApiVersion.V3
-  def path     = Vector("ping")
-  def security = SecurityType.None
+  def method                      = HttpMethod.GET
+  def prefix                      = ApiPrefix.Api
+  def version                     = ApiVersion.V3
+  def path                        = Vector("ping")
+  def security                    = SecurityType.None
   def queryParams(req: Ping.type) = QueryString.empty
-  def decoder  = Decoder[Json]
+  def decoder                     = Decoder[Json]
 
 given BinanceEndpoint[ServerTimeReq.type, ServerTime] with
-  def method   = HttpMethod.GET
-  def prefix   = ApiPrefix.Api
-  def version  = ApiVersion.V3
-  def path     = Vector("time")
-  def security = SecurityType.None
+  def method                               = HttpMethod.GET
+  def prefix                               = ApiPrefix.Api
+  def version                              = ApiVersion.V3
+  def path                                 = Vector("time")
+  def security                             = SecurityType.None
   def queryParams(req: ServerTimeReq.type) = QueryString.empty
-  def decoder  = Decoder[ServerTime]
+  def decoder                              = Decoder[ServerTime]
 
 given BinanceEndpoint[ExchangeInfoReq, ExchangeInfo] with
   def method   = HttpMethod.GET

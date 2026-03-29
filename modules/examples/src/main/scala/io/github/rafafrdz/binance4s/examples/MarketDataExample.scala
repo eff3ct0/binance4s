@@ -3,10 +3,10 @@ package io.github.rafafrdz.binance4s.examples
 import cats.effect.{IO, IOApp}
 import cats.syntax.all.*
 
+import io.github.rafafrdz.binance4s.api.*
 import io.github.rafafrdz.binance4s.config.BinanceConfig
 import io.github.rafafrdz.binance4s.domain.{BinanceMode, KlineInterval}
 import io.github.rafafrdz.binance4s.http.client.BinanceClient
-import io.github.rafafrdz.binance4s.api.*
 
 object MarketDataExample extends IOApp.Simple:
 

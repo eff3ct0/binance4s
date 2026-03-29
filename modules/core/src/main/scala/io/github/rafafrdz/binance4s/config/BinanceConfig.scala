@@ -7,9 +7,9 @@ import io.github.rafafrdz.binance4s.domain.BinanceMode
 case class Credentials(apiKey: String, secretKey: String)
 
 case class BinanceConfig(
-    mode: BinanceMode = BinanceMode.Testnet,
-    credentials: Option[Credentials] = scala.None,
-    recvWindow: Option[Long] = scala.None
+  mode: BinanceMode = BinanceMode.Testnet,
+  credentials: Option[Credentials] = scala.None,
+  recvWindow: Option[Long] = scala.None
 )
 
 object BinanceConfig:
@@ -28,8 +28,8 @@ object BinanceConfig:
   def builder: ConfigBuilder = ConfigBuilder(BinanceConfig())
 
   case class ConfigBuilder(config: BinanceConfig):
-    def live: ConfigBuilder     = copy(config = config.copy(mode = BinanceMode.Live))
-    def testnet: ConfigBuilder  = copy(config = config.copy(mode = BinanceMode.Testnet))
+    def live: ConfigBuilder    = copy(config = config.copy(mode = BinanceMode.Live))
+    def testnet: ConfigBuilder = copy(config = config.copy(mode = BinanceMode.Testnet))
     def credentials(apiKey: String, secretKey: String): ConfigBuilder =
       copy(config = config.copy(credentials = Some(Credentials(apiKey, secretKey))))
     def recvWindow(ms: Long): ConfigBuilder =

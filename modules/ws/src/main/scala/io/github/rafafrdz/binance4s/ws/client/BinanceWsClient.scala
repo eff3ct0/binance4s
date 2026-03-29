@@ -1,6 +1,7 @@
 package io.github.rafafrdz.binance4s.ws.client
 
 import cats.effect.{Async, Resource}
+
 import org.http4s.Uri
 import org.http4s.client.websocket.*
 import org.http4s.jdkhttpclient.JdkWSClient
@@ -27,11 +28,14 @@ object BinanceWsClient:
         def subscribe[A](stream: WebSocketStream[A]): Stream[F, A] =
           val uri = Uri.unsafeFromString(s"$baseUri${stream.streamName}")
           Stream.resource(wsClient.connectHighLevel(WSRequest(uri))).flatMap { conn =>
-            conn.receiveStream.collect { case WSFrame.Text(text, _) => text }
+            conn.receiveStream
+              .collect { case WSFrame.Text(text, _) => text }
               .evalMap { text =>
                 Async[F].fromEither(
-                  io.circe.parser.decode[A](text)(using stream.decoder)
-                    .left.map(e => BinanceError.WebSocketError(e.getMessage))
+                  io.circe.parser
+                    .decode[A](text)(using stream.decoder)
+                    .left
+                    .map(e => BinanceError.WebSocketError(e.getMessage))
                 )
               }
           }
@@ -40,11 +44,11 @@ object BinanceWsClient:
           val combined = streams.mkString("/")
           val uri      = Uri.unsafeFromString(s"${config.mode.wsUri}/stream?streams=$combined")
           Stream.resource(wsClient.connectHighLevel(WSRequest(uri))).flatMap { conn =>
-            conn.receiveStream.collect { case WSFrame.Text(text, _) => text }
+            conn.receiveStream
+              .collect { case WSFrame.Text(text, _) => text }
               .evalMap { text =>
                 Async[F].fromEither(
-                  io.circe.parser.parse(text)
-                    .left.map(e => BinanceError.WebSocketError(e.getMessage))
+                  io.circe.parser.parse(text).left.map(e => BinanceError.WebSocketError(e.getMessage))
                 )
               }
           }

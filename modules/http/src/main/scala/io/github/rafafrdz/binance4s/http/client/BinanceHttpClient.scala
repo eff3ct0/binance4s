@@ -2,10 +2,10 @@ package io.github.rafafrdz.binance4s.http.client
 
 import cats.effect.Async
 import cats.syntax.all.*
+
 import org.http4s.{Header, Headers, Method, Request, Response, Uri}
 import org.http4s.circe.*
 import org.http4s.client.Client
-import org.typelevel.ci.*
 
 import io.circe.{Decoder, Json}
 
@@ -15,18 +15,20 @@ import io.github.rafafrdz.binance4s.endpoint.{BinanceEndpoint, HttpMethod}
 import io.github.rafafrdz.binance4s.error.{BinanceApiErrorResponse, BinanceError}
 import io.github.rafafrdz.binance4s.query.QueryString
 
+import org.typelevel.ci.*
+
 private[client] class BinanceHttpClient[F[_]: Async](
-    val config: BinanceConfig,
-    httpClient: Client[F]
+  val config: BinanceConfig,
+  httpClient: Client[F]
 ) extends BinanceClient[F]:
 
   override def execute[Req, Resp](req: Req)(using ep: BinanceEndpoint[Req, Resp]): F[Resp] =
     for
-      qs       <- buildQueryString(req, ep)
-      uri      <- buildUri(ep, qs)
-      method   =  toHttp4sMethod(ep.method)
-      headers  =  buildHeaders(ep)
-      request  =  Request[F](method = method, uri = uri, headers = headers)
+      qs  <- buildQueryString(req, ep)
+      uri <- buildUri(ep, qs)
+      method  = toHttp4sMethod(ep.method)
+      headers = buildHeaders(ep)
+      request = Request[F](method = method, uri = uri, headers = headers)
       response <- httpClient.run(request).use(handleResponse[Resp](using ep.decoder))
     yield response
 

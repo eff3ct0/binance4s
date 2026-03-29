@@ -43,9 +43,11 @@ case class AvgPriceStream(symbol: String) extends WebSocketStream[WsAvgPrice]:
   def streamName = s"${symbol.toLowerCase}@avgPrice"
   def decoder    = Decoder[WsAvgPrice]
 
-case class DepthStream(symbol: String, levels: Int = 20, speed: String = "1000ms") extends WebSocketStream[WsDepthUpdate]:
-  def streamName = if levels > 0 then s"${symbol.toLowerCase}@depth${levels}@${speed}" else s"${symbol.toLowerCase}@depth@${speed}"
-  def decoder    = Decoder[WsDepthUpdate]
+case class DepthStream(symbol: String, levels: Int = 20, speed: String = "1000ms")
+    extends WebSocketStream[WsDepthUpdate]:
+  def streamName =
+    if levels > 0 then s"${symbol.toLowerCase}@depth${levels}@${speed}" else s"${symbol.toLowerCase}@depth@${speed}"
+  def decoder = Decoder[WsDepthUpdate]
 
 case class DiffDepthStream(symbol: String, speed: String = "1000ms") extends WebSocketStream[WsDepthUpdate]:
   def streamName = s"${symbol.toLowerCase}@depth@${speed}"

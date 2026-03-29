@@ -18,7 +18,7 @@ object QueryString:
 
     def ++(other: QueryString): QueryString =
       val qsv: Vector[(String, String)]    = qs
-      val otherv: Vector[(String, String)]  = other
+      val otherv: Vector[(String, String)] = other
       qsv ++ otherv
 
     def render: String =

@@ -2,10 +2,10 @@ package io.github.rafafrdz.binance4s.examples
 
 import cats.effect.{IO, IOApp}
 
+import io.github.rafafrdz.binance4s.api.*
 import io.github.rafafrdz.binance4s.config.BinanceConfig
 import io.github.rafafrdz.binance4s.domain.BinanceMode
 import io.github.rafafrdz.binance4s.http.client.BinanceClient
-import io.github.rafafrdz.binance4s.api.*
 
 object GeneralExample extends IOApp.Simple:
 
