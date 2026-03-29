@@ -1,6 +1,6 @@
 # binance4s
 
-[![CI](https://github.com/rafafrdz/binance4s/actions/workflows/ci.yml/badge.svg)](https://github.com/rafafrdz/binance4s/actions/workflows/ci.yml)
+[![CI](https://github.com/eff3ct0/binance4s/actions/workflows/ci.yml/badge.svg)](https://github.com/eff3ct0/binance4s/actions/workflows/ci.yml)
 [![Scala 3.3](https://img.shields.io/badge/Scala-3.3-red.svg)](https://www.scala-lang.org/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 

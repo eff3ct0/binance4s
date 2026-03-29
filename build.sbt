@@ -8,10 +8,10 @@ val MunitV      = "1.0.3"
 val MunitCEV    = "2.0.0"
 
 ThisBuild / scalaVersion       := Scala3
-ThisBuild / organization       := "io.github.rafafrdz"
+ThisBuild / organization       := "io.github.eff3ct0"
 ThisBuild / versionScheme      := Some("semver-spec")
 ThisBuild / version            := "2.0.0-SNAPSHOT"
-ThisBuild / homepage           := Some(url("https://github.com/rafafrdz/binance4s"))
+ThisBuild / homepage           := Some(url("https://github.com/eff3ct0/binance4s"))
 ThisBuild / licenses           := List("Apache-2.0" -> url("https://www.apache.org/licenses/LICENSE-2.0"))
 ThisBuild / developers         := List(
   Developer("rafafrdz", "Rafael Fernández", "hello@rafaelfernandez.dev", url("https://rafaelfernandez.dev"))
