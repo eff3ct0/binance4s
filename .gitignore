@@ -140,3 +140,6 @@ project/plugins/project/
 hs_err_pid*
 
 
+website/node_modules/
+website/build/
+website/.docusaurus/
