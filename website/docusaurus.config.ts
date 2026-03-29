@@ -11,8 +11,8 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://binance4s.rafaelfernandez.dev',
-  baseUrl: '/',
+  url: 'https://eff3ct0.github.io',
+  baseUrl: '/binance4s/',
 
   organizationName: 'eff3ct0',
   projectName: 'binance4s',
