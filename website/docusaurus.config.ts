@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Binance4s',
   tagline: 'Typeclass-driven, functional Scala 3 library for the Binance API',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/r-favicon.png',
 
   future: {
     v4: true,
@@ -47,6 +47,12 @@ const config: Config = {
     },
     navbar: {
       title: 'Binance4s',
+      logo: {
+        alt: 'Binance4s',
+        src: 'img/r-logo.png',
+        srcDark: 'img/r-logo-dark.png',
+        height: 22,
+      },
       items: [
         {
           type: 'docSidebar',
