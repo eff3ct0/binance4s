@@ -1,11 +1,11 @@
-val Scala3 = "3.3.4"
+val Scala3 = "3.3.6"
 
-val CatsEffectV = "3.5.7"
+val CatsEffectV = "3.6.1"
 val Http4sV     = "0.23.30"
-val CirceV      = "0.14.10"
-val Fs2V        = "3.11.0"
-val MunitV      = "1.0.3"
-val MunitCEV    = "2.0.0"
+val CirceV      = "0.14.13"
+val Fs2V        = "3.12.0"
+val MunitV      = "1.1.1"
+val MunitCEV    = "2.1.0"
 
 ThisBuild / scalaVersion       := Scala3
 ThisBuild / organization       := "io.github.eff3ct0"
@@ -65,7 +65,7 @@ lazy val ws = (project in file("modules/ws"))
       "org.http4s" %% "http4s-ember-client"    % Http4sV,
       "org.http4s" %% "http4s-circe"           % Http4sV,
       "co.fs2"     %% "fs2-core"               % Fs2V,
-      "org.http4s" %% "http4s-jdk-http-client" % "0.9.2"
+      "org.http4s" %% "http4s-jdk-http-client" % "0.10.0"
     )
   )
 

@@ -21,7 +21,7 @@ trait BinanceWsClient[F[_]]:
 object BinanceWsClient:
 
   def resource[F[_]: Async](config: BinanceConfig): Resource[F, BinanceWsClient[F]] =
-    Resource.eval(JdkWSClient.simple[F]).map { wsClient =>
+    JdkWSClient.simple[F].map { wsClient =>
       new BinanceWsClient[F]:
         private val baseUri = s"${config.mode.wsUri}/ws/"
 
