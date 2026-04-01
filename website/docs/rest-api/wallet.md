@@ -141,6 +141,98 @@ val restrictions: F[ApiRestrictions] = client.apiRestrictions
 | **Endpoint** | `GET /sapi/v1/account/apiRestrictions` |
 | **Auth** | HMAC Signed |
 
+## Account Snapshot
+
+Get a daily account snapshot (Spot, Margin, or Futures).
+
+```scala
+import io.github.rafafrdz.binance4s.api.wallet.AccountSnapshotReq
+import io.github.rafafrdz.binance4s.domain.AccountSnapshotType
+
+val snapshot: F[AccountSnapshot] = client.execute(AccountSnapshotReq(AccountSnapshotType.SPOT))
+```
+
+| | |
+|---|---|
+| **Endpoint** | `GET /sapi/v1/accountSnapshot` |
+| **Auth** | HMAC Signed |
+
+## Transfer History
+
+Query universal transfer history.
+
+```scala
+import io.github.rafafrdz.binance4s.api.wallet.TransferHistoryReq
+import io.github.rafafrdz.binance4s.domain.TransferType
+
+val history: F[TransferHistory] = client.execute(TransferHistoryReq(TransferType.MAIN_FUNDING))
+```
+
+| | |
+|---|---|
+| **Endpoint** | `GET /sapi/v1/asset/transfer` |
+| **Auth** | HMAC Signed |
+
+## User Asset
+
+Get user assets (balances with valuations).
+
+```scala
+import io.github.rafafrdz.binance4s.api.wallet.UserAssetReq
+
+val assets: F[List[UserAsset]] = client.execute(UserAssetReq(asset = Some("BTC")))
+```
+
+| | |
+|---|---|
+| **Endpoint** | `POST /sapi/v3/asset/getUserAsset` |
+| **Auth** | HMAC Signed |
+
+## Wallet Balance
+
+Get the balance of all wallets.
+
+```scala
+import io.github.rafafrdz.binance4s.api.wallet.WalletBalanceReq
+
+val balances: F[List[WalletBalance]] = client.execute(WalletBalanceReq())
+```
+
+| | |
+|---|---|
+| **Endpoint** | `GET /sapi/v1/asset/wallet/balance` |
+| **Auth** | HMAC Signed |
+
+## Asset Detail
+
+Get details about assets (fees, min withdraw amounts, etc.).
+
+```scala
+import io.github.rafafrdz.binance4s.api.wallet.AssetDetailReq
+
+val details: F[Map[String, AssetDetail]] = client.execute(AssetDetailReq(asset = Some("BTC")))
+```
+
+| | |
+|---|---|
+| **Endpoint** | `GET /sapi/v1/asset/assetDetail` |
+| **Auth** | HMAC Signed |
+
+## Withdraw Quota
+
+Get the withdrawal quota for a specific asset.
+
+```scala
+import io.github.rafafrdz.binance4s.api.wallet.WithdrawQuotaReq
+
+val quota: F[WithdrawQuota] = client.execute(WithdrawQuotaReq("BTC"))
+```
+
+| | |
+|---|---|
+| **Endpoint** | `GET /sapi/v1/capital/withdraw/quota` |
+| **Auth** | HMAC Signed |
+
 ## Delist Schedule
 
 Get the scheduled delistings.

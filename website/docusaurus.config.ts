@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Binance4s',
   tagline: 'Typeclass-driven, functional Scala 3 library for the Binance API',
-  favicon: 'img/r-favicon.png',
+  favicon: 'img/favicon.svg',
 
   future: {
     v4: true,
@@ -23,6 +23,13 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  stylesheets: [
+    {
+      href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&display=swap',
+      type: 'text/css',
+    },
+  ],
 
   presets: [
     [
@@ -42,15 +49,21 @@ const config: Config = {
   ],
 
   themeConfig: {
+    image: 'img/binance4s-logo.svg',
+    metadata: [
+      { name: 'twitter:card', content: 'summary_large_image' },
+    ],
     colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
       respectPrefersColorScheme: true,
     },
     navbar: {
       title: 'Binance4s',
       logo: {
         alt: 'Binance4s',
-        src: 'img/r-logo.png',
-        srcDark: 'img/r-logo-dark.png',
+        src: 'img/binance4s-logo.svg',
+        srcDark: 'img/binance4s-logo-dark.svg',
         height: 22,
       },
       items: [

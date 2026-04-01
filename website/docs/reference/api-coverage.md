@@ -33,7 +33,6 @@ Complete list of Binance API endpoints implemented in Binance4s.
 | Book Ticker | GET | `/api/v3/ticker/bookTicker` | None |
 | Rolling Ticker | GET | `/api/v3/ticker` | None |
 | Reference Price | GET | `/api/v3/referencePrice` | None |
-| Price Ticker (single) | GET | `/api/v3/ticker/price` | None |
 
 ### Spot Trading (9)
 

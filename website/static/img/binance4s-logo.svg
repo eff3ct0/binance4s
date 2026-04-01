@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Binance diamond shape -->
+  <path d="M60 10L85 35L75 45L60 30L45 45L35 35L60 10Z" fill="#09090b"/>
+  <path d="M90 40L100 50L60 90L20 50L30 40L60 70L90 40Z" fill="#09090b"/>
+  <path d="M60 50L70 60L60 70L50 60L60 50Z" fill="#09090b"/>
+  <!-- Scala functional brackets -->
+  <path d="M15 95L25 85L30 90L22 98L30 106L25 111L15 101L15 95Z" fill="#09090b"/>
+  <path d="M105 95L95 85L90 90L98 98L90 106L95 111L105 101L105 95Z" fill="#09090b"/>
+</svg>

@@ -109,6 +109,86 @@ val limits: F[List[RateLimitOrder]] = client.rateLimitOrder
 | **Auth** | HMAC Signed |
 | **Weight** | 40 |
 
+## Order List Status
+
+Check the status of an OCO or order list.
+
+```scala
+import io.github.rafafrdz.binance4s.api.account.OrderListStatusReq
+
+val orderList: F[OrderListResponse] = client.execute(OrderListStatusReq(orderListId = Some(123L)))
+```
+
+| | |
+|---|---|
+| **Endpoint** | `GET /api/v3/orderList` |
+| **Auth** | HMAC Signed |
+| **Weight** | 4 |
+
+## All Order Lists
+
+Get all order lists (OCO) for the account.
+
+```scala
+import io.github.rafafrdz.binance4s.api.account.AllOrderListReq
+
+val lists: F[List[OrderListResponse]] = client.execute(AllOrderListReq(limit = Some(10)))
+```
+
+| | |
+|---|---|
+| **Endpoint** | `GET /api/v3/allOrderList` |
+| **Auth** | HMAC Signed |
+| **Weight** | 20 |
+
+## Open Order Lists
+
+Get all open order lists (OCO).
+
+```scala
+import io.github.rafafrdz.binance4s.api.account.OpenOrderListReq
+
+val open: F[List[OrderListResponse]] = client.execute(OpenOrderListReq())
+```
+
+| | |
+|---|---|
+| **Endpoint** | `GET /api/v3/openOrderList` |
+| **Auth** | HMAC Signed |
+| **Weight** | 6 |
+
+## Prevented Matches
+
+Get the list of orders that were prevented from trading due to self-trade prevention.
+
+```scala
+import io.github.rafafrdz.binance4s.api.account.PreventedMatchesReq
+
+val matches: F[List[PreventedMatch]] = client.execute(PreventedMatchesReq("BTCUSDT"))
+```
+
+| | |
+|---|---|
+| **Endpoint** | `GET /api/v3/myPreventedMatches` |
+| **Auth** | HMAC Signed |
+| **Weight** | 20 |
+
+## SOR Allocations
+
+Get the SOR (Smart Order Router) allocation history.
+
+```scala
+import io.github.rafafrdz.binance4s.api.account.AllocationsReq
+
+val allocs: F[List[SorAllocation]] = client.execute(AllocationsReq("BTCUSDT"))
+```
+
+| | |
+|---|---|
+| **Endpoint** | `GET /api/v3/myAllocations` |
+| **Auth** | HMAC Signed |
+| **Weight** | 20 |
+
 ## Commission Rates
 
 Get the commission rates for a specific symbol.

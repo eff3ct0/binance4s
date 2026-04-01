@@ -173,12 +173,12 @@ client.depth("INVALID", Some(5)).attempt.flatMap {
 
 | Library | Version | Purpose |
 |---------|---------|---------|
-| Scala | 3.3.4 | Language |
-| Cats Effect | 3.5.7 | Effect system |
+| Scala | 3.3.6 LTS | Language |
+| Cats Effect | 3.6.1 | Effect system |
 | http4s | 0.23.30 | HTTP client |
-| Circe | 0.14.10 | JSON codecs |
-| fs2 | 3.11.0 | Streaming |
-| munit | 1.0.3 | Testing |
+| Circe | 0.14.13 | JSON codecs |
+| fs2 | 3.12.0 | Streaming |
+| munit | 1.1.1 | Testing |
 
 ## License
 

@@ -145,6 +145,54 @@ val tickers: F[List[BookTicker]] = client.bookTicker(Some("BTCUSDT"))
 | **Auth** | None |
 | **Weight** | 2-4 |
 
+## UI Klines
+
+Get kline/candlestick data optimized for presentation (modified by Binance for display purposes).
+
+```scala
+import io.github.rafafrdz.binance4s.api.market.UiKlinesReq
+
+val uiKlines: F[List[Kline]] = client.execute(UiKlinesReq("BTCUSDT", KlineInterval.`1h`, limit = Some(100)))
+```
+
+| | |
+|---|---|
+| **Endpoint** | `GET /api/v3/uiKlines` |
+| **Auth** | None |
+| **Weight** | 2 |
+
+## Trading Day Ticker
+
+Get price change statistics for the trading day.
+
+```scala
+import io.github.rafafrdz.binance4s.api.market.TradingDayTickerReq
+
+val ticker: F[List[TradingDayTicker]] = client.execute(TradingDayTickerReq(symbol = Some("BTCUSDT")))
+```
+
+| | |
+|---|---|
+| **Endpoint** | `GET /api/v3/ticker/tradingDay` |
+| **Auth** | None |
+| **Weight** | 4 |
+
+## Rolling Window Ticker
+
+Get rolling window price change statistics with configurable window size.
+
+```scala
+import io.github.rafafrdz.binance4s.api.market.RollingTickerReq
+
+val ticker: F[List[RollingTicker]] = client.execute(RollingTickerReq(symbol = Some("BTCUSDT"), windowSize = Some("1h")))
+```
+
+| | |
+|---|---|
+| **Endpoint** | `GET /api/v3/ticker` |
+| **Auth** | None |
+| **Weight** | 4 |
+
 ## Reference Price
 
 Get the reference price for a symbol.
