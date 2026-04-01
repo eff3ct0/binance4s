@@ -12,7 +12,7 @@ const config: Config = {
   },
 
   url: 'https://eff3ct0.github.io',
-  baseUrl: '/binance4s/',
+  baseUrl: process.env.BASE_URL ?? '/binance4s/',
 
   organizationName: 'eff3ct0',
   projectName: 'binance4s',
