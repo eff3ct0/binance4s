@@ -11,8 +11,8 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://eff3ct0.github.io',
-  baseUrl: process.env.BASE_URL ?? '/',
+  url: 'https://binance4s.rafaelfernandez.dev',
+  baseUrl: '/',
 
   organizationName: 'eff3ct0',
   projectName: 'binance4s',
